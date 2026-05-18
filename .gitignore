@@ -1,0 +1,7 @@
+## Cache from Open-Meteo requests
+.cache/
+## Output data files
+*.csv
+## Python bytecode
+__pycache__/
+*.pyc
