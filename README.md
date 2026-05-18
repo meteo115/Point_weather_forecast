@@ -1,6 +1,16 @@
-# Point_weather_forecast
-The code "ST_forecast_demo.py" performs 3 separate operations. 
-First part of the code fetches the Metar data set from last 7 days to the current date from the IOWA state university's webiste for accessing ASOS datasets. [https://mesonet.agron.iastate.edu/request/download.phtml] (ASOS data network).
-The second part takes point based hourly weather forceast + hindcast from [https://open-meteo.com/en/docs] (Open Meteo). 
-The next part calibrates the forceast using hourly Bias mapping for Temperature and Relative humidity, and using Quantile Mapping for wind speed and crates one calibrated hourly forecast till the next 7 days.
-The plotting function provides a visual validation of the whole calibration process and compares the raw forecast and the calibrated forecast.
+# Point Weather Forecast
+Bias-corrected short-term weather forecast pipeline for New Delhi (VIDP).
+Combines METAR observations with NWP model output to produce calibrated 7-day hourly forecasts.
+## Variables
+Temperature (°C), Relative Humidity (%)  and Wind Speed (m/s) variables are used from Open-Meteo (Forecast + Hindcast) + METAR (Observation). For Temperature and Relative Humidity, diurnal additive bias, and for Wind Speed, Quantile Mapping is used for Bias correction.
+## Data Sources
+- **Observations:** [Iowa State ASOS Network](https://mesonet.agron.iastate.edu/request/download.phtml) — Station VIDP (IGI Airport, New Delhi)
+- **Forecast/Hindcast:** [Open-Meteo API](https://open-meteo.com/en/docs) — Hourly, past 7 days + 7-day forecast
+## How to Run
+### Install dependencies
+pip install -r requirements.txt
+### Run the pipeline
+python ST_forecast_demo.py
+## Output
+Generates a 3-panel validation plot comparing actual observations,
+raw forecast, and bias-calibrated forecast for all three variables.
