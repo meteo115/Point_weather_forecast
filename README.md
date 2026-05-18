@@ -14,3 +14,5 @@ python ST_forecast_demo.py
 ## Output
 Generates a 3-panel validation plot comparing actual observations,
 raw forecast, and bias-calibrated forecast for all three variables.
+## Sample Output
+![Forecast Calibration](Forecast_Calibration_subplots.png)
